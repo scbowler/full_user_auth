@@ -1,4 +1,5 @@
 import 'materialize-css/dist/css/materialize.min.css';
+import '../assets/css/form.css';
 import React from 'react';
 import { Route } from 'react-router-dom';
 import Nav from './nav';
