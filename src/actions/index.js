@@ -38,3 +38,29 @@ export function signIn(cred){
         });
     }
 }
+
+export function logout(){
+    localStorage.removeItem('token');
+
+    return {
+        type: types.LOG_OUT
+    }
+}
+
+export function getQuote(){
+    return dispatch => {
+
+        const config = {
+            headers: {
+                authorization: localStorage.getItem('token')
+            }
+        } 
+
+        axios.get(BASE_URL, config).then(resp => {
+            dispatch({
+                type: types.GET_QUOTE,
+                payload: resp.data.message
+            });
+        });
+    }
+}
